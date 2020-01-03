@@ -1,0 +1,31 @@
+//widget
+
+.widget {
+  background: $light-blue;
+  margin-bottom: $s-size;
+}
+
+.widget__message {
+  border-bottom: 1px solid lighten($light-blue, 10%);
+  color: $off-white;
+  margin: 0;
+  padding: $l-size;
+  text-align: center;
+}
+
+// Widget header
+.widget-header {
+  background: $blue;
+  color: $off-white;
+  display: flex;
+  justify-content: space-between;
+  padding: $s-size;
+}
+
+//setup an element selector for .widget-header
+// set margin
+// use the class
+
+.widget-header__title {
+  margin: 0;
+}
