@@ -27,7 +27,6 @@ class Indecisionapp extends React.Component {
         this.setState(() => ({ options: options }));
       }
     } catch (e) {
-      // Do nothing at all
     }
   }
   componentDidUpdate(prevState, prevProps) {
