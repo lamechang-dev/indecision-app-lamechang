@@ -4,6 +4,7 @@ import Options from "./Options";
 import Header from "./Header";
 import Action from "./Action";
 import OptionModal from "./OptionModal";
+import { OPTIONLIMIT } from "../constants/index";
 
 class Indecisionapp extends React.Component {
   constructor(props) {
@@ -35,7 +36,6 @@ class Indecisionapp extends React.Component {
       localStorage.setItem("options", json);
     }
   }
-
   handleDeleteOptions() {
     this.setState(() => ({ options: [] }));
   }
@@ -46,6 +46,7 @@ class Indecisionapp extends React.Component {
       })
     }));
   }
+
   handlePick() {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randomNum];
@@ -58,16 +59,19 @@ class Indecisionapp extends React.Component {
       selectedOption: undefined
     }));
   }
+
   handleAddOption(option) {
     if (!option) {
       return "Enter valid value to add item";
     } else if (this.state.options.indexOf(option) > -1) {
       return "This option already exists";
+    } else if (this.state.options.length >= OPTIONLIMIT) {
+      return "You can't add options more than 5";
     } else {
+      this.setState(prevState => ({
+        options: prevState.options.concat(option)
+      }));
     }
-    this.setState(prevState => ({
-      options: prevState.options.concat(option)
-    }));
   }
   render() {
     const title = "Indecision";
