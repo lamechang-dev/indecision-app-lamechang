@@ -35,6 +35,7 @@ class Indecisionapp extends React.Component {
       localStorage.setItem("options", json);
     }
   }
+
   handleDeleteOptions() {
     this.setState(() => ({ options: [] }));
   }
@@ -45,7 +46,6 @@ class Indecisionapp extends React.Component {
       })
     }));
   }
-
   handlePick() {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randomNum];
@@ -58,7 +58,6 @@ class Indecisionapp extends React.Component {
       selectedOption: undefined
     }));
   }
-
   handleAddOption(option) {
     if (!option) {
       return "Enter valid value to add item";
