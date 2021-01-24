@@ -4,7 +4,9 @@ import Options from "./Options";
 import Header from "./Header";
 import Action from "./Action";
 import OptionModal from "./OptionModal";
+import ReactNotification from 'react-notifications-component'
 import { OPTIONLIMIT } from "../constants/index";
+import { store } from 'react-notifications-component';
 
 class Indecisionapp extends React.Component {
   constructor(props) {
@@ -71,6 +73,16 @@ class Indecisionapp extends React.Component {
       this.setState(prevState => ({
         options: prevState.options.concat(option)
       }));
+      store.addNotification({
+        message: "new option added!",
+        type: "default",
+        container: "top-right",
+        animationIn: ["animate__animated", "animate__fadeIn"],
+        animationOut: ["animate__animated", "animate__fadeOut"],
+        dismiss: {
+          duration: 5000,
+        }
+      });
     }
   }
   render() {
@@ -79,6 +91,7 @@ class Indecisionapp extends React.Component {
 
     return (
       <div>
+        <ReactNotification />
         <Header subtitle={subtitle} />
         <div className="container">
           <Action
