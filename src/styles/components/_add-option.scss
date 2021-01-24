@@ -1,5 +1,5 @@
 .add-option-error {
-  color: $off-white;
+  color: $dark-blue;
   font-style: italic;
   padding: 0;
   margin: $m-size 0 $m-size $m-size;
@@ -11,10 +11,10 @@
 }
 
 .add-option__input {
-  background: $dark-blue;
+  background: $blue;
   border: none;
   color: $off-white;
-  border-bottom: 0.3rem solid darken($dark-blue, 10%);
+  border-bottom: 0.3rem solid darken($dark-blue, 5%);
   flex-grow: 1;
   margin-right: $s-size;
 }

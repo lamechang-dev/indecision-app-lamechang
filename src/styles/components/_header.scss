@@ -1,6 +1,6 @@
 .header {
-  background: $off-black;
-  color: white;
+  background: $dark-blue;
+  color: $off-white;
   margin-bottom: $m-size * 3;
   padding: $m-size 0;
 }
@@ -11,7 +11,6 @@
 }
 
 .header__subtitile {
-  color: $off-white;
   font-size: $m-size;
   font-weight: 500;
   margin: 0;
