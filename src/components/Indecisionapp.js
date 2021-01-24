@@ -5,7 +5,7 @@ import Header from "./Header";
 import Action from "./Action";
 import OptionModal from "./OptionModal";
 import ReactNotification from 'react-notifications-component'
-import { OPTIONLIMIT } from "../constants/index";
+import { OPTION_LIMIT, DEFAULT_NOTIFICATION_COMPONENT } from "../constants/index";
 import { store } from 'react-notifications-component';
 
 class Indecisionapp extends React.Component {
@@ -48,7 +48,6 @@ class Indecisionapp extends React.Component {
       })
     }));
   }
-
   handlePick() {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randomNum];
@@ -67,22 +66,16 @@ class Indecisionapp extends React.Component {
       return "Enter valid value to add item";
     } else if (this.state.options.indexOf(option) > -1) {
       return "This option already exists";
-    } else if (this.state.options.length >= OPTIONLIMIT) {
+    } else if (this.state.options.length >= OPTION_LIMIT) {
       return "You can't add options more than 5";
     } else {
       this.setState(prevState => ({
         options: prevState.options.concat(option)
       }));
-      store.addNotification({
-        message: "new option added!",
-        type: "default",
-        container: "top-right",
-        animationIn: ["animate__animated", "animate__fadeIn"],
-        animationOut: ["animate__animated", "animate__fadeOut"],
-        dismiss: {
-          duration: 5000,
-        }
-      });
+      store.addNotification(Object.assign(
+        { message: "new option added!" },
+        DEFAULT_NOTIFICATION_COMPONENT
+      ));
     }
   }
   render() {
