@@ -37,7 +37,7 @@ class Indecisionapp extends React.Component {
     }
   }
   handleDeleteOptions() {
-    this.setState(() => ({ options: [] }));
+    this.setState({ options: [] });
   }
   handleDeleteOption(optionToRemove) {
     this.setState(prevState => ({
