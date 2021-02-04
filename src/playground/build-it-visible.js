@@ -1,44 +1,45 @@
-// VisibilityToggle -render, constructor(bind)
-// vvisibility -> false
+import React from "react";
+import ReactDOM from "react-dom";
 
-class VisibilityToggle extends React.Component{
-    constructor(props){
-        super(props);
-        this.onShowDetail = this.onShowDetail.bind(this);
-        this.state = {
-            detailText: "hahahaha",
-            hideText: "",
-            visibility: false,
-            title: "Visibility Toggle",
-            buttonText: "Show Details"
-        };
+class VisibilityToggle extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onShowDetail = this.onShowDetail.bind(this);
+    this.state = {
+      detailText: "hahahaha",
+      hideText: "",
+      visibility: false,
+      title: "Visibility Toggle",
+      buttonText: "Show Details"
+    };
+  }
+  onShowDetail() {
+    if (this.state.visibility) {
+      this.setState({
+        visibility: false,
+        buttonText: "Show Details"
+      });
+    } else {
+      this.setState({
+        visibility: true,
+        buttonText: "Hide Details"
+      });
     }
-    onShowDetail(){
-
-        if(this.state.visibility){this.setState({
-            visibility: false,
-            buttonText: "Show Details"
-        })}
-        else{
-            this.setState({
-                visibility: true,
-                buttonText: "Hide Details"
-            })
-        }
-    }
-    render(){
-        return(
-            <div>
-                <h1>{this.state.title}</h1>
-                <button onClick={this.onShowDetail}>{this.state.buttonText}</button>
-                <p>{this.state.visibility ? this.state.detailText : this.state.hideText}</p>
-            </div>
-        )
-    }
-
+  }
+  render() {
+    return (
+      <div>
+        <h1>{this.state.title}</h1>
+        <button onClick={this.onShowDetail}>{this.state.buttonText}</button>
+        <p>
+          {this.state.visibility ? this.state.detailText : this.state.hideText}
+        </p>
+      </div>
+    );
+  }
 }
 
-ReactDOM.render(<VisibilityToggle />, document.getElementById('app'));
+ReactDOM.render(<VisibilityToggle />, document.getElementById("app"));
 
 /*
 const app = {
